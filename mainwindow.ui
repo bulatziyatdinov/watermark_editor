@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1333</width>
+    <height>1200</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>100</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Редактор изображения с водяным знаком</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: white;
+	padding: 10 12;
+	border-radius: 5px;
+	font: 500, 14px, &quot;Montserrat&quot;;
+}
+
+QPushButton:Hover {
+	background-color: lightblue;
+}
+
+QPushButton:Pressed {
+	background-color: yellow;
+}
+
+QLabel {
+	font: 600, 14px, &quot;Montserrat&quot;;
+}
+
+QCheckBox {
+	font: 500, 14px, &quot;Montserrat&quot;;
+}</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_6">
+      <item row="1" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="1">
+           <widget class="QPushButton" name="button_load_main_image">
+            <property name="text">
+             <string>Загрузить</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLineEdit" name="line_sign_image_path">
+            <property name="placeholderText">
+             <string>Выберите изображение водяного знака</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="line_main_image_path">
+            <property name="placeholderText">
+             <string>Выберите основное изображение</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="button_load_sign_image">
+            <property name="text">
+             <string>Загрузить</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label_images">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Выбор изображений</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <property name="sizeConstraint">
+           <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+          </property>
+          <item row="3" column="1">
+           <widget class="QSlider" name="slider_position_x">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QLineEdit" name="line_watermark_position_x_value">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="inputMask">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_watermark_position_axis_y">
+            <property name="text">
+             <string>Ось У</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_watermark_position_axis_x">
+            <property name="text">
+             <string>Ось Х</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QSlider" name="slider_position_y">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="4">
+           <widget class="QLabel" name="label_watermark_position">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Положение водяного знака</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" colspan="2">
+           <widget class="QPushButton" name="button_position_update">
+            <property name="text">
+             <string>Применить</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="3">
+           <widget class="QLineEdit" name="line_watermark_position_y_value">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Minimum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>25</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="sizeConstraint">
+           <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+          </property>
+          <item row="14" column="0">
+           <widget class="QLabel" name="label_mirror">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Отражение водяного знак</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QPushButton" name="button_transparency_update">
+              <property name="text">
+               <string>Применить</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_transparency_undo">
+              <property name="text">
+               <string>Сброс</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="12" column="2">
+           <widget class="QLineEdit" name="line_rotation_value">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="21" column="2">
+           <widget class="QLabel" name="spacer2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2">
+           <widget class="QLineEdit" name="line_scale_value">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QSlider" name="slider_scale">
+            <property name="minimum">
+             <number>25</number>
+            </property>
+            <property name="maximum">
+             <number>300</number>
+            </property>
+            <property name="singleStep">
+             <number>25</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QSlider" name="slider_transparency">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QPushButton" name="button_rotate_minus_15">
+              <property name="text">
+               <string>-15</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_rotate_undo">
+              <property name="text">
+               <string>Сброс</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_rotate_plus_15">
+              <property name="text">
+               <string>+15</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="10" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QPushButton" name="button_scale_update">
+              <property name="text">
+               <string>Применить</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_scale_undo">
+              <property name="text">
+               <string>Сброс</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="22" column="0">
+           <widget class="QLineEdit" name="line_save_image_path">
+            <property name="placeholderText">
+             <string>Выберите путь сохранения</string>
+            </property>
+           </widget>
+          </item>
+          <item row="13" column="0">
+           <widget class="QPushButton" name="button_rotation_update">
+            <property name="text">
+             <string>Применить</string>
+            </property>
+           </widget>
+          </item>
+          <item row="20" column="0">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="15" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QPushButton" name="button_mirror_horizontal">
+              <property name="text">
+               <string>По горизонтали</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_mirror_vertical">
+              <property name="text">
+               <string>По вертикали</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="18" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_special">
+              <property name="text">
+               <string>Особое</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_fill">
+              <property name="text">
+               <string>Заполнить водяным знаком</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_fill_update">
+              <property name="text">
+               <string>Применить</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLineEdit" name="line_transparency_value">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="3">
+           <widget class="QLabel" name="label_transparency">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Прозрачность водяного знака</string>
+            </property>
+           </widget>
+          </item>
+          <item row="21" column="0">
+           <widget class="QLabel" name="label_save_result">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Сохранение результата</string>
+            </property>
+           </widget>
+          </item>
+          <item row="18" column="1">
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Minimum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="22" column="1" colspan="2">
+           <widget class="QPushButton" name="button_save_image">
+            <property name="text">
+             <string>Сохранить</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_delete_bg">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Удалить цвет фона с водяного знака</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_scale">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Масштаб водяного знака</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="0">
+           <widget class="QLabel" name="label_rotation">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Вращение водяного знака (в градусах)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="button_remove_bg">
+              <property name="text">
+               <string>Удалить цвет</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="button_remove_bg_undo">
+              <property name="text">
+               <string>Вернуть цвет</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Размах</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QSpinBox" name="spinBox_remove_bg">
+            <property name="maximum">
+             <number>50</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="label_display_image">
+        <property name="minimumSize">
+         <size>
+          <width>854</width>
+          <height>480</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>854</width>
+          <height>480</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+background-color: white;
+border: 2px solid grey;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="3">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <property name="spacing">
+         <number>100</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btn_16x9">
+          <property name="text">
+           <string>16x9</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_4x3">
+          <property name="text">
+           <string>4x3</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1333</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
