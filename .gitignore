@@ -1,8 +1,9 @@
 .venv/*
 venv/*
 .idea/*
-pics/*
+
 __pycache__
 
-pics
 build
+
+test.py
