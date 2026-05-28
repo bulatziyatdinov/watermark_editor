@@ -14,8 +14,11 @@
 логика - в ```main```. Главный файл немного большеват, но для данного
 простого проекта заниматься рефакторингом и архитектурой нецелесообразно.
 
-В проекте также оставлен ```mainwindow.ui```, это файл для графического
-редактора.
+В проекте также оставлен ```mainwindow.ui```.
+
+Рекомендуется использовать **Python 3.12**. Для реализации графического 
+интерфейса приложения используется библиотека **PySide2**, для работы 
+с изображениями - **pillow**.
 
 ## Демонстрация
 Водяной знак можно разместить на любой части основного изображения. 
@@ -30,30 +33,37 @@
 
 1. Клонируйте репозиторий:
 ```bash
-    git clone https://github.com/bulatziyatdinov/watermark_editor
+git clone https://github.com/bulatziyatdinov/watermark_editor
 ```
 
 2. Перейдите в папку проекта:
 ```bash
-    cd watermark_editor
+cd watermark_editor
 ```
 
 3. Создайте виртуальную среду:
 ```bash
-    python -m venv venv
+python -m venv venv
 ```
 
 4. Активируйте виртуальную среду:
+
+Для Windows:
 ```bash
-    ./venv/Scripts/activate
+./venv/Scripts/activate
+```
+
+Для Linux/macOS:
+```bash
+source venv/bin/activate
 ```
 
 5. Установите зависимости:
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 6. Запустите приложение:
 ```bash
-    python main.py
+python main.py
 ```
