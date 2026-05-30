@@ -1,5 +1,9 @@
 # Приложение для добавления водяного знака на изображение
 
+![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![PySide2](https://img.shields.io/badge/PySide2-Framework-blue?logo=qt)
+![Pillow](https://img.shields.io/badge/Pillow-Image%20Library-blue?logo=pillow)
+
 ## Информация
 
 Данный проект был разработан в рамках курсовой работы по дисциплине 
