@@ -1,7 +1,7 @@
 # Приложение для добавления водяного знака на изображение
 
 ![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
-![PySide2](https://img.shields.io/badge/PySide2-Framework-blue?logo=qt)
+![PySide](https://img.shields.io/badge/PySide6-Framework-blue?logo=qt)
 ![Pillow](https://img.shields.io/badge/Pillow-Image%20Library-blue?logo=pillow)
 
 ## Информация
@@ -21,7 +21,7 @@
 В проекте также оставлен ```mainwindow.ui```.
 
 Рекомендуется использовать **Python 3.12**. Для реализации графического 
-интерфейса приложения используется библиотека **PySide2**, для работы 
+интерфейса приложения используется библиотека **PySide6**, для работы 
 с изображениями - **pillow**.
 
 ## Демонстрация
