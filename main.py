@@ -1,7 +1,9 @@
+import os
+
 from PIL import Image, ImageQt
 
 from PySide6.QtCore import QEvent
-from PySide6.QtGui import QPixmap
+from PySide6.QtGui import QPixmap, QFontDatabase
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 
 from mainwindow import Ui_MainWindow
@@ -350,8 +352,21 @@ class MainWindow(QMainWindow):
             self.update_image_display()
 
 
+def load_fonts() -> None:
+    """Loads font"""
+    fonts_dir = 'fonts'
+    try:
+        for font_file in os.listdir(fonts_dir):
+            if font_file.endswith(('.ttf', '.otf')):
+                font_path = os.path.join(fonts_dir, font_file)
+                QFontDatabase.addApplicationFont(font_path)
+    except FileNotFoundError:
+        print('Ошибка: папка "fonts" не существует')
+
+
 def main():
     app = QApplication()
+    load_fonts()
     window = MainWindow()
     window.setWindowIcon(QPixmap('icon.svg'))
     window.showMaximized()
