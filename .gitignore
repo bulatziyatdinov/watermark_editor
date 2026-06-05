@@ -1,9 +1,11 @@
 .venv/*
 venv/*
-.idea/*
 
+.idea/*
 __pycache__
 
-build
+dist/
+build/
+*.spec
 
 test.py
