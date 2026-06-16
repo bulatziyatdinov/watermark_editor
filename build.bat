@@ -1,1 +1,0 @@
-pyinstaller --onefile --windowed --name "Watermark Editor" --icon icon_build.png --add-data "fonts;fonts" --hidden-import PIL --hidden-import PySide6.QtSvg --hidden-import PySide6.QtXml main.py
