@@ -1,4 +1,5 @@
 import os
+import sys
 
 from PIL import Image, ImageQt
 
@@ -368,9 +369,9 @@ def main():
     app = QApplication()
     load_fonts()
     window = MainWindow()
-    window.setWindowIcon(QPixmap('icon.svg'))
+    window.setWindowIcon(QPixmap('pics/icon.svg'))
     window.showMaximized()
-    app.exec()
+    sys.exit(app.exec())
 
 
 if __name__ == '__main__':
